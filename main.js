@@ -8,8 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "MIT App Inventor Project", cert: "https://drive.google.com/file/d/1se02QPXA195_Phs0AZm00CLfNrbPT3Nl/view?usp=drive_link" },
         { title: "Fusion360 Autocad Project", cert: "https://drive.google.com/file/d/1OhA6VzuBLgsythkm6VkeV_etD_Kbcj1M/view?usp=drive_link" },
         { title: "System Thinking", cert: "https://docs.google.com/presentation/d/1l6L3dDx0uL3SGIN5-RGtsPll30Cls9u-/edit?usp=sharing&ouid=117700077634656397693&rtpof=true&sd=true" },
-        { title: "Laser Cutting", cert: "C:\\Users\\karth\\Downloads\\How Infrared Remote Controls Work.pptx" },
-        { title: "3D Printing", cert: "C:\\Users\\karth\\Downloads\\How Infrared Remote Controls Work.pptx" }
+        { title: "Laser Cutting", cert: "https://drive.google.com/file/d/1kEKzYCecxfTaO2VZDHsLsgQ_VE9OYGS5/view?usp=sharing", cert1: "https://drive.google.com/drive/folders/1E8blCKK_BL4uUnb79RD58sl7mC40YPvg?usp=sharing" },
+        { title: "3D Printing", cert: "https://drive.google.com/drive/folders/1iWUJOA88V5EX5mx5Q3g8DkI8xbrxiNSo?usp=sharing" },
+        { title: "Embedded System", cert: "https://drive.google.com/file/d/1C7EKYq1pBnEr2L_jflIVR2voYnrOun5l/view?usp=sharing" },
+        { title: "Raindrop Sensor & EAP Actuator", cert: "https://drive.google.com/file/d/1xweJRwsFC4niZsT56QutkBqJ3lvcnNTw/view?usp=sharing" },
+        { title: "Raindrop Sensor & EAP Actuator", cert: "https://drive.google.com/file/d/1xweJRwsFC4niZsT56QutkBqJ3lvcnNTw/view?usp=sharing" },
+        { title: "Django App Development", cert: "https://drive.google.com/drive/folders/11zXebY9RHNbxeG1hPc9MLOREHAnQF38Z?usp=sharing" },
+        { title: "IOT-Assignment", cert: "https://docs.google.com/document/d/1HhtA4qYYbTyQvMh-4x76sx1pM2ymN2wR/edit?usp=sharing&ouid=117700077634656397693&rtpof=true&sd=true" },
+        { title: "Calculator Application", cert: "https://drive.google.com/drive/folders/1ur3_MWV78aCBCv-u_6i_UZNDV__REt0v?usp=sharing" },
+        { title: "SOS Application", cert: "https://drive.google.com/drive/folders/1g-LIG-eXcdIf-CTWqSIzj8F8D3I8Clop?usp=sharing" }
     ];
 
     // ===============================
@@ -26,14 +33,19 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.animation = `cardEnter 0.9s ease forwards`;
             card.style.animationDelay = `${index * 0.12}s`;
 
+            let buttonsHtml = `<button class="btn-sm btn-view" data-cert="${item.cert}">View Report</button>`;
+            if (item.cert1) {
+                buttonsHtml += `<button class="btn-sm btn-view" data-cert="${item.cert1}">View Files </button>`;
+            }
+
             card.innerHTML = `
                 <div class="card-icon"><i class="fas fa-file-alt"></i></div>
                 <h4>${item.title}</h4>
                 <p style="font-size:0.85rem;color:var(--text-muted);">
                     Assignment ${index + 1}
                 </p>
-                <div style="margin-top:1.2rem;display:flex;gap:0.5rem;">
-                    <button class="btn-sm btn-view" data-cert="${item.cert}">View Report</button>
+                <div style="margin-top:1.2rem;display:flex;gap:0.5rem;flex-wrap:wrap;">
+                    ${buttonsHtml}
                 </div>
             `;
             assignmentsContainer.appendChild(card);
