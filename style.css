@@ -1,29 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
+/* ================= ROOT VARIABLES ================= */
+
 :root {
     --primary: #4e0523;
     --primary-light: #a62755;
     --secondary: #ba5361;
     --accent: #f57c0b;
+
     --bg-main: #f9fafb;
     --bg-card: rgba(255, 255, 255, 0.8);
+
     --text-main: #111827;
     --text-muted: #634b57;
+
     --border-color: rgba(235, 229, 232, 0.5);
+
     --glass-bg: rgba(255, 255, 255, 0.7);
     --glass-border: rgba(255, 255, 255, 0.4);
+
     --sidebar-width: 280px;
+
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+    --shadow-md:
+        0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+    --shadow-lg:
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
+
+/* ================= RESET ================= */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+/* ================= BODY ================= */
 
 body {
     font-family: 'Inter', sans-serif;
@@ -34,6 +53,8 @@ body {
     scroll-behavior: smooth;
 }
 
+/* ================= TYPOGRAPHY ================= */
+
 h1,
 h2,
 h3,
@@ -43,11 +64,14 @@ h4,
     font-weight: 700;
 }
 
-/* Layout */
+/* ================= LAYOUT ================= */
+
 .app-container {
     display: flex;
     min-height: 100vh;
 }
+
+/* ================= BACKGROUND ORBS ================= */
 
 .bg-orbs {
     position: fixed;
@@ -60,8 +84,11 @@ h4,
     position: absolute;
     width: 300px;
     height: 300px;
+
     background: radial-gradient(circle, #38bdf8, transparent 70%);
+
     opacity: 0.25;
+
     animation: float 18s linear infinite;
 }
 
@@ -74,16 +101,22 @@ h4,
 .bg-orbs span:nth-child(2) {
     top: 60%;
     left: 70%;
+
     background: radial-gradient(circle, #22c55e, transparent 70%);
+
     animation-duration: 26s;
 }
 
 .bg-orbs span:nth-child(3) {
     top: 30%;
     left: 40%;
+
     background: radial-gradient(circle, #a855f7, transparent 70%);
+
     animation-duration: 20s;
 }
+
+/* ================= FLOAT ANIMATION ================= */
 
 @keyframes float {
     0% {
@@ -99,59 +132,86 @@ h4,
     }
 }
 
-/* Navigation */
+/* ================= NAVIGATION ================= */
+
 .navbar {
     position: fixed;
+
     top: 0;
     left: 0;
+
     height: 100vh;
     width: var(--sidebar-width);
+
     background: var(--glass-bg);
+
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+
     border-right: 1px solid var(--glass-border);
+
     padding: 2rem;
+
     z-index: 1000;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
+/* ================= NAV LOGO ================= */
+
 .nav-logo {
     font-size: 1.5rem;
     font-weight: 800;
+
     color: var(--primary);
+
     margin-bottom: 3rem;
+
     text-decoration: none;
+
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
+/* ================= NAV LINKS ================= */
+
 .nav-links {
     list-style: none;
+
     display: flex;
     flex-direction: column;
+
     gap: 0.75rem;
 }
 
 .nav-item a {
     text-decoration: none;
+
     color: var(--text-muted);
+
     font-weight: 500;
     font-size: 1rem;
+
     padding: 0.8rem 1.2rem;
+
     border-radius: 12px;
+
     display: flex;
     align-items: center;
     gap: 0.75rem;
+
     transition: var(--transition-smooth);
 }
 
 .nav-item a:hover,
 .nav-item a.active {
     background: rgb(189, 152, 162);
+
     color: var(--primary);
+
     box-shadow: var(--shadow-sm);
 }
 
@@ -159,18 +219,27 @@ h4,
     font-size: 1.1rem;
 }
 
-/* Main Content */
+/* ================= MAIN CONTENT ================= */
+
 main {
     margin-left: var(--sidebar-width);
+
     flex: 1;
+
     padding: 2rem 4rem;
 }
 
+/* ================= SECTIONS ================= */
+
 section {
     min-height: 100vh;
+
     padding: 6rem 0;
+
     opacity: 0;
+
     transform: translateY(30px);
+
     transition: var(--transition-smooth);
 }
 
@@ -179,29 +248,42 @@ section.visible {
     transform: translateY(0);
 }
 
+/* ================= SECTION TITLE ================= */
+
 .section-title {
     font-size: 2.5rem;
+
     margin-bottom: 3rem;
+
     position: relative;
+
     display: inline-block;
 }
 
 .section-title::after {
     content: '';
+
     position: absolute;
+
     bottom: -10px;
     left: 0;
+
     width: 60px;
     height: 4px;
+
     background: var(--primary);
+
     border-radius: 2px;
 }
 
-/* Home Section */
+/* ================= HERO SECTION ================= */
+
 .hero {
     display: flex;
+
     align-items: center;
     justify-content: space-between;
+
     gap: 4rem;
 }
 
@@ -211,37 +293,56 @@ section.visible {
 
 .hero-tagline {
     color: var(--primary);
+
     font-weight: 600;
+
     text-transform: uppercase;
+
     letter-spacing: 2px;
+
     margin-bottom: 1rem;
+
     display: block;
 }
 
 .hero-title {
     font-size: 4rem;
+
     line-height: 1.1;
+
     margin-bottom: 1.5rem;
 }
 
 .hero-highlight {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    background: linear-gradient(135deg,
+            var(--primary),
+            var(--secondary));
+
     -webkit-background-clip: text;
     background-clip: text;
+
     -webkit-text-fill-color: transparent;
 }
 
 .hero-description {
     font-size: 1.2rem;
+
     color: var(--text-muted);
+
     margin-bottom: 2.5rem;
+
     max-width: 600px;
 }
 
+/* ================= HERO IMAGE ================= */
+
 .hero-image {
     flex: 1;
+
     max-width: 450px;
+
     position: relative;
+
     animation: float 6s ease-in-out infinite;
 }
 
@@ -261,38 +362,57 @@ section.visible {
 
 .hero-image img {
     width: 100%;
+
     border-radius: 30px;
+
     box-shadow: var(--shadow-lg);
+
     border: 8px solid white;
 }
 
+/* ================= BUTTONS ================= */
+
 .btn {
     display: inline-block;
+
     padding: 1rem 2rem;
+
     border-radius: 12px;
+
     font-weight: 600;
+
     text-decoration: none;
+
     transition: var(--transition-smooth);
+
     cursor: pointer;
+
     border: none;
 }
 
 .btn-primary {
     background: var(--primary);
+
     color: rgb(255, 255, 255);
 }
 
 .btn-primary:hover {
     background: var(--primary-light);
+
     transform: translateY(-2px);
+
     box-shadow: var(--shadow-md);
 }
 
-/* About Me */
+/* ================= ABOUT ================= */
+
 .about-grid {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     gap: 4rem;
+
     align-items: center;
 }
 
@@ -301,68 +421,108 @@ section.visible {
     font-size: 1.1rem;
 }
 
+/* ================= BADGES ================= */
+
 .club-badges {
     display: flex;
     flex-wrap: wrap;
+
     gap: 1rem;
+
     margin-top: 2rem;
 }
 
 .badge {
     background: rgb(243, 224, 224);
+
     padding: 0.5rem 1rem;
+
     border-radius: 50px;
+
     font-size: 0.9rem;
     font-weight: 500;
+
     color: var(--primary);
+
     border: 1px solid var(--border-color);
 }
 
-/* Cards (Skills, Projects, Interns) */
+/* ================= CARD GRID ================= */
+
 .card-grid {
     display: grid;
+
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
     gap: 2rem;
 }
 
+/* ================= CARD ================= */
+
 .card {
     background: var(--bg-card);
+
     backdrop-filter: blur(8px);
+
     border: 1px solid var(--glass-border);
+
     border-radius: 24px;
+
     padding: 2rem;
+
     transition: var(--transition-smooth);
+
     position: relative;
+
     overflow: hidden;
 }
 
 .card:hover {
     transform: translateY(-10px);
+
     box-shadow: var(--shadow-lg);
+
     background: rgb(246, 216, 216);
 }
+
+/* ================= CARD ICON ================= */
 
 .card-icon {
     width: 60px;
     height: 60px;
+
     background: rgba(235, 37, 96, 0.1);
+
     border-radius: 16px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     font-size: 1.5rem;
+
     color: var(--primary);
+
     margin-bottom: 1.5rem;
 }
 
+/* ================= SMALL BUTTON ================= */
+
 .btn-sm {
     padding: 0.5rem 1rem;
+
     font-size: 0.85rem;
+
     border-radius: 8px;
+
     background: var(--bg-main);
+
     color: var(--primary);
+
     border: 1px solid var(--border-color);
+
     cursor: pointer;
+
     transition: var(--transition-smooth);
 }
 
@@ -371,33 +531,48 @@ section.visible {
     color: white;
 }
 
-/* Modal */
+/* ================= MODAL ================= */
+
 .modal-overlay {
     position: fixed;
+
     top: 0;
     left: 0;
+
     width: 100%;
     height: 100%;
+
     background: rgba(131, 54, 54, 0.4);
+
     backdrop-filter: blur(8px);
+
     display: none;
+
     align-items: center;
     justify-content: center;
+
     z-index: 2000;
+
     padding: 2rem;
 }
 
 .modal-content {
     max-width: 800px;
     width: 100%;
+
     max-height: 90vh;
+
     overflow-y: auto;
+
     position: relative;
+
     background: white;
+
     box-shadow: var(--shadow-lg);
 }
 
-/* Scrollbar refine */
+/* ================= SCROLLBAR ================= */
+
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -408,6 +583,7 @@ section.visible {
 
 ::-webkit-scrollbar-thumb {
     background: var(--border-color);
+
     border-radius: 10px;
 }
 
@@ -415,17 +591,26 @@ section.visible {
     background: var(--text-muted);
 }
 
-/* Responsive */
+/* ================= RESPONSIVE ================= */
+
 @media (max-width: 1024px) {
+
     .navbar {
         width: 100%;
+
         height: auto;
+
         position: fixed;
+
         bottom: 0;
         top: auto;
+
         padding: 1rem;
+
         border-right: none;
+
         border-top: 1px solid var(--glass-border);
+
         flex-direction: row;
     }
 
@@ -435,7 +620,9 @@ section.visible {
 
     .nav-links {
         flex-direction: row;
+
         justify-content: space-around;
+
         width: 100%;
     }
 
@@ -462,6 +649,8 @@ section.visible {
     }
 }
 
+/* ================= FADE UP ================= */
+
 @keyframes fadeUp {
     from {
         opacity: 0;
@@ -474,20 +663,32 @@ section.visible {
     }
 }
 
+/* ================= ASSIGNMENT CARD ================= */
+
 .assignment-card {
     transform-style: preserve-3d;
-    transition: transform 0.15s ease, box-shadow 0.25s ease;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.25s ease;
 }
 
 .assignment-card::before {
     content: "";
+
     position: absolute;
+
     inset: 0;
-    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%),
+
+    background:
+        radial-gradient(circle at var(--x, 50%) var(--y, 50%),
             rgba(255, 255, 255, 0.15),
             transparent 60%);
+
     opacity: 0;
+
     transition: opacity 0.3s ease;
+
     pointer-events: none;
 }
 
@@ -495,11 +696,17 @@ section.visible {
     opacity: 1;
 }
 
+/* ================= CARD ENTRY ================= */
+
 .assignment-card {
     opacity: 0;
+
     transform: translateY(60px) scale(0.95);
+
     animation: cardIn 0.9s ease forwards;
 }
+
+/* ================= STAGGER DELAY ================= */
 
 .assignment-card:nth-child(1) {
     animation-delay: 0.1s;
@@ -561,6 +768,8 @@ section.visible {
     animation-delay: 1.5s;
 }
 
+/* ================= CARD IN ================= */
+
 @keyframes cardIn {
     to {
         opacity: 1;
@@ -568,19 +777,29 @@ section.visible {
     }
 }
 
+/* ================= NEON BORDER ================= */
+
 .assignment-card {
     position: relative;
 }
 
 .assignment-card::after {
     content: "";
+
     position: absolute;
+
     inset: -1px;
+
     border-radius: inherit;
+
     border: 1px solid rgba(56, 189, 248, 0.6);
+
     animation: neonPulse 2.2s ease-in-out infinite;
+
     pointer-events: none;
 }
+
+/* ================= NEON PULSE ================= */
 
 @keyframes neonPulse {
 
@@ -594,18 +813,23 @@ section.visible {
     }
 }
 
-/* ================= ADVANCED ASSIGNMENT ANIMATION ================= */
+/* ================= ADVANCED CARD ================= */
 
 .assignment-card {
     opacity: 0;
+
     transform: translateY(50px) scale(0.95);
+
     transform-style: preserve-3d;
+
     transition: box-shadow 0.3s ease;
 }
 
 .assignment-card:hover {
     box-shadow: 0 25px 50px rgba(126, 3, 3, 0.35);
 }
+
+/* ================= CARD ENTER ================= */
 
 @keyframes cardEnter {
     to {
@@ -614,7 +838,7 @@ section.visible {
     }
 }
 
-/* ================= MAGIC CURSOR EFFECT ================= */
+/* ================= MAGIC CURSOR ================= */
 
 #projects {
     position: relative;
@@ -623,16 +847,25 @@ section.visible {
 
 .magic-cursor {
     position: absolute;
+
     width: 300px;
     height: 300px;
-    background: radial-gradient(circle,
+
+    background:
+        radial-gradient(circle,
             rgba(124, 4, 4, 0.35),
             rgba(223, 6, 78, 0.15),
             transparent 70%);
+
     border-radius: 50%;
+
     pointer-events: none;
+
     filter: blur(40px);
+
     opacity: 0;
+
     transform: translate(-50%, -50%);
+
     transition: opacity 0.3s ease;
 }
